@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -q batch                                                            
-#PBS -N roary                                       
-#PBS -l nodes=1:ppn=24 -l mem=80gb                                        
+#PBS -q highmem_q                                                            
+#PBS -N roary_rep_68                                       
+#PBS -l nodes=1:ppn=15 -l mem=30gb                                        
 #PBS -l walltime=300:00:00                                                
 #PBS -M rx32940@uga.edu                                                  
 #PBS -m abe                                                              
@@ -9,9 +9,9 @@
 #PBS -e /scratch/rx32940                        
 #PBS -j oe
 
-ncbi_path="/scratch/rx32940/core_gene_builder/assemblies/ncbi_Assemblies_202003"
-self_path="/scratch/rx32940/core_gene_builder/assemblies/Self_Assemblies_202003"
-outdir="/scratch/rx32940/core_gene_builder/prokka"
+# ncbi_path="/scratch/rx32940/core_gene_builder/assemblies/ncbi_Assemblies_202003"
+# self_path="/scratch/rx32940/core_gene_builder/assemblies/Self_Assemblies_202003"
+# outdir="/scratch/rx32940/core_gene_builder/prokka"
 
 
 ##################################################################################
@@ -99,4 +99,4 @@ module load Roary/3.12.0
 # roary -e -n -p 12 /scratch/rx32940/core_gene_builder/species_gff/adleri/*.gff -v -f /scratch/rx32940/core_gene_builder/roary/adleri/
 
 # create pangenome with roary including the outgroup
-roary -e -p 24 -f /scratch/rx32940/core_gene_builder/roary/include_outgroup /scratch/rx32940/core_gene_builder/filtered_gff/*.gff -v
+roary -e -p 15 -f /scratch/rx32940/core_gene_builder/roary/rep_isolates_68 /scratch/rx32940/core_gene_builder/rep_isolate_prokka_68/*.gff -v
