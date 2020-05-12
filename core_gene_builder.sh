@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -q highmem_q                                                            
-#PBS -N roary_rep_68                                       
-#PBS -l nodes=1:ppn=15 -l mem=30gb                                        
+#PBS -N roary_Vincent                                       
+#PBS -l nodes=1:ppn=20 -l mem=30gb                                        
 #PBS -l walltime=300:00:00                                                
 #PBS -M rx32940@uga.edu                                                  
 #PBS -m abe                                                              
@@ -99,4 +99,4 @@ module load Roary/3.12.0
 # roary -e -n -p 12 /scratch/rx32940/core_gene_builder/species_gff/adleri/*.gff -v -f /scratch/rx32940/core_gene_builder/roary/adleri/
 
 # create pangenome with roary including the outgroup
-roary -e -p 15 -f /scratch/rx32940/core_gene_builder/roary/rep_isolates_68 /scratch/rx32940/core_gene_builder/rep_isolate_prokka_68/*.gff -v
+roary -e -p 20 -f /scratch/rx32940/core_gene_builder/roary/Vincent_64 /scratch/rx32940/core_gene_builder/Vincent_prokka_64/*.gff -v
